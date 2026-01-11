@@ -1,0 +1,23 @@
+# The main pipeline for databricks_project_bundle
+
+resources:
+  pipelines:
+    Bronze_Silver_etl:
+      name: Bronze_Silver
+
+      configuration:
+        catalog_name: youtude_dev
+
+      libraries:
+        - glob:
+            include: /Workspace/Users/likhitha1532@gmail.com/Bronze_Silver/transformations/**
+
+      schema: silver
+      continuous: false
+      development: false
+      photon: true
+      channel: "CURRENT"
+      catalog: youtude_dev
+      serverless: true
+
+      root_path: /Workspace/Users/likhitha1532@gmail.com/databricks_project/databricks_project/databricks_project_bundle/src/DLT_Pipelines
